@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Our 1 Year Anniversary ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            --pink: #ff6b9d;
+            --deep-pink: #c44569;
+            --rose: #ff8fab;
+            --cream: #fff5f7;
+            --gold: #d4a373;
+            --vintage-bg: #f5e6d3;
+            --ink: #3d2b1f;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, #1a0a12 0%, #2d1b2e 50%, #1a0a12 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: #fff;
+            position: relative;
+        }
+
+        /* Floating particles container */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .heart, .rose, .sunflower {
+            position: absolute;
+            pointer-events: none;
+            animation: floatUp linear infinite;
+            opacity: 0.7;
+        }
+
+        .heart {
+            color: #ff6b9d;
+            font-size: 20px;
+            text-shadow: 0 0 10px rgba(255, 107, 157, 0.8);
+        }
+
+        .rose {
+            font-size: 22px;
+            filter: drop-shadow(0 0 6px rgba(255, 100, 100, 0.6));
+        }
+
+        .sunflower {
+            font-size: 24px;
+            filter: drop-shadow(0 0 6px rgba(255, 200, 50, 0.6));
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0.6);
+                opacity: 0;
+            }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.7; }
+            100% {
+                transform: translateY(-20vh) rotate(360deg) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Screens */
+        .screen {
+            display: none;
+            min-height: 100vh;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+            padding: 20px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .screen.active {
+            display: flex;
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== INTRO / GAME SCREEN ===== */
+        #game-screen {
+            background: radial-gradient(ellipse at center, #3d1a2e 0%, #1a0a12 70%);
+            text-align: center;
+        }
+
+        .game-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2.2rem, 8vw, 3.5rem);
+            color: #ffb6c1;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(255, 107, 157, 0.6);
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { text-shadow: 0 0 20px rgba(255, 107, 157, 0.6); }
+            50% { text-shadow: 0 0 35px rgba(255, 107, 157, 0.9), 0 0 50px rgba(255, 150, 180, 0.5); }
+        }
+
+        .game-subtitle {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1.1rem, 4vw, 1.4rem);
+            color: #ffc0cb;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .game-instruction {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 182, 193, 0.3);
+            border-radius: 20px;
+            padding: 18px 22px;
+            margin-bottom: 25px;
+            max-width: 340px;
+            font-size: 1.05rem;
+            line-height: 1.5;
+            color: #ffe4e9;
+        }
+
+        .progress-container {
+            width: 90%;
+            max-width: 320px;
+            height: 14px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 182, 193, 0.4);
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #ff6b9d, #ff8fab, #ffb6c1);
+            border-radius: 20px;
+            transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 0 15px rgba(255, 107, 157, 0.7);
+        }
+
+        .progress-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.2rem;
+            color: #ffb6c1;
+            margin-bottom: 25px;
+        }
+
+        .heart-field {
+            position: relative;
+            width: 100%;
+            max-width: 360px;
+            height: 320px;
+            margin: 0 auto;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 182, 193, 0.25);
+            overflow: hidden;
+            touch-action: manipulation;
+        }
+
+        .floating-heart-btn {
+            position: absolute;
+            font-size: 32px;
+            cursor: pointer;
+            transition: transform 0.15s ease, opacity 0.3s;
+            user-select: none;
+            filter: drop-shadow(0 0 8px rgba(255, 107, 157, 0.8));
+            animation: heartBob 2s ease-in-out infinite;
+        }
+
+        .floating-heart-btn:active {
+            transform: scale(1.4);
+        }
+
+        .floating-heart-btn.collected {
+            animation: collectHeart 0.5s forwards;
+            pointer-events: none;
+        }
+
+        @keyframes heartBob {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-8px) scale(1.05); }
+        }
+
+        @keyframes collectHeart {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.6); opacity: 0.8; }
+            100% { transform: scale(0); opacity: 0; }
+        }
+
+        .unlock-message {
+            display: none;
+            margin-top: 20px;
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.8rem;
+            color: #ffb6c1;
+            animation: fadeIn 1s ease;
+        }
+
+        .continue-btn {
+            display: none;
+            margin-top: 20px;
+            padding: 16px 40px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.5);
+            transition: transform 0.2s, box-shadow 0.2s;
+            animation: fadeIn 1s ease;
+        }
+
+        .continue-btn:active {
+            transform: scale(0.96);
+        }
+
+        /* ===== GIFTS SELECTION ===== */
+        #gifts-screen {
+            background: radial-gradient(ellipse at top, #3d1a2e 0%, #1a0a12 60%);
+            padding-top: 40px;
+            padding-bottom: 60px;
+            justify-content: flex-start;
+        }
+
+        .gifts-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2rem, 7vw, 3rem);
+            color: #ffb6c1;
+            text-align: center;
+            margin-bottom: 8px;
+            text-shadow: 0 0 20px rgba(255, 107, 157, 0.5);
+        }
+
+        .gifts-sub {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.15rem;
+            color: #ffc0cb;
+            text-align: center;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .gifts-container {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            width: 100%;
+            max-width: 360px;
+        }
+
+        .gift-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 182, 193, 0.35);
+            border-radius: 22px;
+            padding: 22px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gift-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 182, 193, 0.15) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gift-card:active {
+            transform: scale(0.97);
+        }
+
+        .gift-card:hover::before,
+        .gift-card:active::before {
+            opacity: 1;
+        }
+
+        .gift-icon {
+            font-size: 2.8rem;
+            margin-bottom: 8px;
+            display: block;
+            filter: drop-shadow(0 0 10px rgba(255, 150, 180, 0.6));
+        }
+
+        .gift-label {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: #ffe4e9;
+            margin-bottom: 4px;
+        }
+
+        .gift-desc {
+            font-size: 0.95rem;
+            color: #ffc0cb;
+            opacity: 0.85;
+        }
+
+        .gift-card.locked .gift-icon {
+            filter: grayscale(0.6) brightness(0.7);
+        }
+
+        .final-btn {
+            margin-top: 35px;
+            padding: 15px 32px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.25rem;
+            background: linear-gradient(135deg, #d4a373, #b08968);
+            color: #1a0a12;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(212, 163, 115, 0.4);
+            transition: transform 0.2s;
+        }
+
+        .final-btn:active {
+            transform: scale(0.96);
+        }
+
+        /* ===== GIFT CONTENT SCREENS ===== */
+        .gift-content {
+            background: #1a0a12;
+            padding: 0;
+            justify-content: flex-start;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .gift-header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(26, 10, 18, 0.92);
+            backdrop-filter: blur(12px);
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 182, 193, 0.2);
+        }
+
+        .back-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 182, 193, 0.4);
+            color: #ffb6c1;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .back-btn:active {
+            background: rgba(255, 182, 193, 0.2);
+        }
+
+        .gift-header-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.5rem;
+            color: #ffb6c1;
+        }
+
+        .gift-body {
+            padding: 25px 20px 50px;
+            max-width: 520px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Gift 1 - Vintage Letter */
+        #gift1-screen .gift-body {
+            background: transparent;
+        }
+
+        .letter-paper {
+            background: linear-gradient(to bottom, #f8ecd4 0%, #f0e0c0 100%);
+            color: #3d2b1f;
+            border-radius: 4px;
+            padding: 30px 22px;
+            box-shadow: 
+                0 10px 40px rgba(0,0,0,0.4),
+                inset 0 0 60px rgba(139, 90, 43, 0.08);
+            position: relative;
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1.75;
+            font-size: 1.08rem;
+            border: 1px solid #d4b896;
+        }
+
+        .letter-paper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            border-radius: 4px;
+        }
+
+        .letter-header {
+            text-align: center;
+            margin-bottom: 22px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(61, 43, 31, 0.2);
+        }
+
+        .letter-header .date {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
+            color: #8b5a2b;
+            margin-bottom: 6px;
+        }
+
+        .letter-header .to {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.7rem;
+            color: #5c3a21;
+        }
+
+        .letter-content {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            text-align: left;
+        }
+
+        .letter-signature {
+            margin-top: 30px;
+            text-align: right;
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.6rem;
+            color: #5c3a21;
+        }
+
+        .letter-seal {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 2.2rem;
+            opacity: 0.7;
+        }
+
+        /* Password overlay for Gift 1 */
+        .password-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(26, 10, 18, 0.97);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 30;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .password-overlay.hidden {
+            display: none;
+        }
+
+        .password-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: #ffb6c1;
+            margin-bottom: 10px;
+        }
+
+        .password-hint {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.15rem;
+            color: #ffc0cb;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .password-input {
+            width: 160px;
+            padding: 14px 18px;
+            font-size: 1.6rem;
+            text-align: center;
+            letter-spacing: 8px;
+            border: 2px solid rgba(255, 182, 193, 0.5);
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            outline: none;
+            margin-bottom: 18px;
+        }
+
+        .password-input:focus {
+            border-color: #ff6b9d;
+            box-shadow: 0 0 20px rgba(255, 107, 157, 0.4);
+        }
+
+        .password-btn {
+            padding: 12px 32px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            color: white;
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+        }
+
+        .password-error {
+            color: #ff8a8a;
+            margin-top: 12px;
+            font-size: 0.95rem;
+            min-height: 20px;
+        }
+
+        /* Gift 2 - Poem */
+        #gift2-screen {
+            background: linear-gradient(180deg, #2a1525 0%, #1a0a12 40%, #1f1220 100%);
+        }
+
+        .poem-container {
+            background: linear-gradient(145deg, rgba(255, 240, 245, 0.95), rgba(255, 228, 235, 0.92));
+            border-radius: 20px;
+            padding: 32px 24px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.35);
+            position: relative;
+            overflow: hidden;
+            color: #3d2b1f;
+        }
+
+        .poem-container::before {
+            content: '❀';
+            position: absolute;
+            top: 12px;
+            left: 16px;
+            font-size: 1.4rem;
+            opacity: 0.35;
+            color: #c44569;
+        }
+
+        .poem-container::after {
+            content: '❀';
+            position: absolute;
+            bottom: 12px;
+            right: 16px;
+            font-size: 1.4rem;
+            opacity: 0.35;
+            color: #c44569;
+        }
+
+        .poem-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.9rem;
+            text-align: center;
+            color: #8b3a5a;
+            margin-bottom: 18px;
+        }
+
+        .poem-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.12rem;
+            line-height: 1.85;
+            text-align: center;
+            white-space: pre-wrap;
+            font-style: italic;
+            color: #3d2b1f;
+        }
+
+        .poem-footer {
+            margin-top: 22px;
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.2rem;
+            color: #8b5a6b;
+        }
+
+        /* Gift 3 */
+        #gift3-screen {
+            background: radial-gradient(ellipse at center, #2d1b2e 0%, #1a0a12 70%);
+        }
+
+        .hint-box {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 182, 193, 0.35);
+            border-radius: 22px;
+            padding: 28px 22px;
+            color: #ffe4e9;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: center;
+            white-space: pre-wrap;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .hint-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.9rem;
+            color: #ffb6c1;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        /* ===== FINAL SCREEN ===== */
+        #final-screen {
+            background: radial-gradient(circle at center, #4a1f35 0%, #1a0a12 70%);
+            text-align: center;
+            padding: 40px 24px;
+        }
+
+        .final-hearts {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        .final-message {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(1.8rem, 6vw, 2.6rem);
+            color: #ffb6c1;
+            line-height: 1.5;
+            max-width: 340px;
+            text-shadow: 0 0 25px rgba(255, 107, 157, 0.5);
+            margin-bottom: 30px;
+        }
+
+        .final-sub {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
+            color: #ffc0cb;
+            opacity: 0.9;
+        }
+
+        .restart-btn {
+            margin-top: 40px;
+            padding: 14px 30px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.2rem;
+            background: transparent;
+            color: #ffb6c1;
+            border: 1px solid rgba(255, 182, 193, 0.5);
+            border-radius: 40px;
+            cursor: pointer;
+        }
+
+        /* Decorative floating elements for gift screens */
+        .gift-floaters {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 5;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <!-- Global floating particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- ===== GAME SCREEN ===== -->
+    <div class="screen active" id="game-screen">
+        <h1 class="game-title">Our Love Journey</h1>
+        <p class="game-subtitle">1 Year Anniversary ❤️</p>
+        <div class="game-instruction">
+            Tap the floating hearts to fill our love meter.<br>
+            Collect <strong>12 hearts</strong> to unlock your gifts, my love 💕
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <div class="progress-text" id="progress-text">0 / 12 hearts</div>
+        <div class="heart-field" id="heart-field"></div>
+        <div class="unlock-message" id="unlock-message">You unlocked our love! 💖</div>
+        <button class="continue-btn" id="continue-btn">Open My Gifts ✨</button>
+    </div>
+
+    <!-- ===== GIFTS SELECTION ===== -->
+    <div class="screen" id="gifts-screen">
+        <h1 class="gifts-title">My Gifts For You</h1>
+        <p class="gifts-sub">Three little pieces of my heart 💝</p>
+        <div class="gifts-container">
+            <div class="gift-card" onclick="openGift(1)">
+                <span class="gift-icon">💌</span>
+                <div class="gift-label">Gift One</div>
+                <div class="gift-desc">A vintage love letter just for you</div>
+            </div>
+            <div class="gift-card" onclick="openGift(2)">
+                <span class="gift-icon">🌹</span>
+                <div class="gift-label">Gift Two</div>
+                <div class="gift-desc">A poem written from my soul</div>
+            </div>
+            <div class="gift-card" onclick="openGift(3)">
+                <span class="gift-icon">🌻</span>
+                <div class="gift-label">Gift Three</div>
+                <div class="gift-desc">Little hints of more surprises</div>
+            </div>
+        </div>
+        <button class="final-btn" onclick="showFinal()">Final Message 💌</button>
+    </div>
+
+    <!-- ===== GIFT 1 - LETTER ===== -->
+    <div class="screen gift-content" id="gift1-screen">
+        <div class="gift-header">
+            <button class="back-btn" onclick="goBack()">← Back</button>
+            <span class="gift-header-title">Love Letter</span>
+            <div style="width:70px"></div>
+        </div>
+        <div class="gift-body">
+            <div class="letter-paper">
+                <div class="letter-header">
+                    <div class="date">October 31st</div>
+                    <div class="to">To My Sweet Baby Girl</div>
+                </div>
+                <div class="letter-content" id="letter-text"></div>
+                <div class="letter-signature">Forever yours,<br>Your Hubby ❤️</div>
+                <div class="letter-seal"> ختم 💌</div>
+            </div>
+        </div>
+        <!-- Password overlay -->
+        <div class="password-overlay" id="password-overlay">
+            <div class="password-title">🔒 Locked with Love</div>
+            <div class="password-hint">Enter the special date<br>to open this letter 💕</div>
+            <input type="password" class="password-input" id="password-input" maxlength="4" inputmode="numeric" placeholder="••••" autocomplete="off">
+            <button class="password-btn" onclick="checkPassword()">Open Letter</button>
+            <div class="password-error" id="password-error"></div>
+        </div>
+    </div>
+
+    <!-- ===== GIFT 2 - POEM ===== -->
+    <div class="screen gift-content" id="gift2-screen">
+        <div class="gift-header">
+            <button class="back-btn" onclick="goBack()">← Back</button>
+            <span class="gift-header-title">For You</span>
+            <div style="width:70px"></div>
+        </div>
+        <div class="gift-body">
+            <div class="poem-container">
+                <div class="poem-title">A Poem For My Baby</div>
+                <div class="poem-text" id="poem-text"></div>
+                <div class="poem-footer">With all my love 🌹</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== GIFT 3 - HINTS ===== -->
+    <div class="screen gift-content" id="gift3-screen">
+        <div class="gift-header">
+            <button class="back-btn" onclick="goBack()">← Back</button>
+            <span class="gift-header-title">Surprises</span>
+            <div style="width:70px"></div>
+        </div>
+        <div class="gift-body">
+            <div class="hint-title">More Gifts Await ✨</div>
+            <div class="hint-box" id="hint-text"></div>
+        </div>
+    </div>
+
+    <!-- ===== FINAL SCREEN ===== -->
+    <div class="screen" id="final-screen">
+        <div class="final-hearts">💖 🌹 🌻 💖</div>
+        <div class="final-message">
+            forever and ever in my heart<br>
+            and filled with love,<br>
+            ur my everything<br>
+            and i will always love u<br>
+            my baby
+        </div>
+        <div class="final-sub">Happy 1 Year Anniversary ❤️</div>
+        <button class="restart-btn" onclick="goToGifts()">← Back to Gifts</button>
+    </div>
+
+    <script>
+        // ===== CONTENT =====
+        const letterText = `hiiiiiii myyy sweettt littlee babyyy girlllll , itssss ourr anniversaryyy babyyyy , itsss finallyyy ourr dayyyy againnnn, happyy 1 yearr anniversary my baby, i cant believe it babyyy itss been one year of us being together , iam so so so so so so so so so so so so so so so soooo gratefull i met u babyyy , iam the luckiest boy in the whole world that i met u babyy , u are the bestt girlfriendd and wifeyyyy everrrr and i loveee uu so so so so so so so so so so so so so so so so so so sooooo muchhhhh, u have no idea how obsessed iam of u babyy , idk what i will be without u , today on this exact date last year we officially started dating , this month isnt just about us starting to date baby , this month gave me my world (uuuuu) this month gave me alot of what i never knew i would get , iam so so so so so so so so soooo gladd that i met u baby , ur not just my forever baby , ur my everything , i carry u in every thought of mine, i carry u in my heart every second of mine baby , there isnt a day where i would u less baby , u deserve the best in the world baby and hubby will give it all to my baby , allll the love , alll the care, and off coursee allll the attentionn and allll the kissies and huggies also , ik i may not be much sometimes , ik that i dont always know what to say or do , but i want u to know that i care for u more than anything in the world , and mainly i loveee u more thann anyonee in the worldd babyyy , u motivate me to be better for u baby and i will also, baby this is a day where our  hearts finally opened up to eachother, its not just that but the love i carry for u is something i cant explain in words my baby , because there arnt enough words for me to explain it babyyy , and even if there are hubby would just start talking and never stop babyyy, u see the stars in the sky baby?? start counting them and u will notice that they never end , and just like those stars my love for u only keeps growing but it never ends babyyy, ur the moon , the most beautiful , gorgeous andd thee prettiesttt everr with that shine of urss , and those stars are my love that always keep surrounding uu and neverr leavingg urr sidee, hubby will do anything it takes to see my babyyy alwayss shiningg andd happyy, and its a promise i make baby to love u forever and ever endlessly, forever and ever , 12 months , 52 weeks, 365 dayss, 525,600 minutes , 31,536,000 seconds , each day each second , each minute , each week , each month all spent with u in my mind, and with u in my heart filled with love, and i actually mean it when i say i have my heart all for u baby, this past one year we went through alot baby, the bad days , the difficult days, the days we loved eachother harder than ever, the days we cried together, the days we laughed together, and those days we spent with stress , the days we had disagreements, but even through all of those things i want u to know there isnt anyone else i would rather go through them with ,this is just a part of our beautiful beginning baby , we have many more memories that we will make in the future, many more memories that we will laugh in , cry in , and have difficult times in , but through them all i want u to know hubby will always be there for u baby , ur my everything and iam not here to give up on u baby, iam not here to leave u at ur hard times , iam here to show u that i care and to show that i will stay and fight through it all , ur not just my wife baby ur my whole world, baby i love u , with all my heart and soul , i would never want to lose u , and i would never want to imagine a life without u in it , iam crying while writing this (happy tearsss ) because i lovee uu so so so so so so so so so so soo muchh , i will try my hardest for u from everything i have even if i dont know anything i will always learn it for u but u will never have to go through anything alone baby , ur heart is safe with me and iam not letting it get stolen or get broken also, i love u baby , i always will forever and ever and this one year mark is a example of how much love i carry for u baby, the future we will build will be the best baby and i cant wait for all those adventures we will go through together in life baby , i want u to know im always by ur side baby , happy anniversary babyy hubby lovesss uu so so so so so so so so so so so so so so so so so so so so so so so so so sooooo muchhhhh`;
+
+        const poemText = `my babyyy this is a poem and i hope my baby likes itt , and i hope it makes my baby smile alsooo  and i hope it makes my babyyy feel better alsoo 
+
+' i love u not as the moon loves the night , but as the night itself is remade by the moon , softly, completely, without beginning or end. ur beauty is not a thing the eye can hold ; it is the hus that falls when stars lean closer, the quite fire that turns ordinary air into prayer. when u walk, the air rearranges itself to touch u first. when u smile, the world forgets its own name and answers only to urs. i love the constellation of freckles and the sun once kissed onto ur skin, the way ur laughter unites every knot i have carried for years. i love the quite courage in ur eyes , that steady , luminous knowing that makes the rest of the universe feel like a gentle afterthought. u are the poem i have been tring to write with every breath since the day i met u . u are the answer to my questions i did not know how to ask. and if all the languages of earth and sky were placed in my mouth , still i would not have enough words to say how completely , how endlessly, and how beautifully i love u' 
+
+i hopee my babyyy likess ittt`;
+
+        const hintText = `my babyyy this isnt the only gift i was making there are moree , this is just one of them babyy , but hubby will give hints thooo , so apart from this there are 2 more gifts babyy and the first hint for the first gift is roblox (i think my baby can guess itt , itss easyyy) and my second hint for the second gift iss thatt my baby always wanted it , my baby asked for it manyy times alsoo ( ikk this one is hardd but my babby will know soonnn) ik my baby doesnt like guessing but trust me baby as we go through the day and with the surprises hubby will tell my babyy okkk ???`;
+
+        // Inject content
+        document.getElementById('letter-text').textContent = letterText;
+        document.getElementById('poem-text').textContent = poemText;
+        document.getElementById('hint-text').textContent = hintText;
+
+        // ===== PARTICLE SYSTEM =====
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const symbols = [
+                { type: 'heart', char: '❤️' },
+                { type: 'heart', char: '💕' },
+                { type: 'rose', char: '🌹' },
+                { type: 'sunflower', char: '🌻' },
+                { type: 'heart', char: '💗' },
+                { type: 'rose', char: '🥀' }
+            ];
+
+            for (let i = 0; i < 18; i++) {
+                const el = document.createElement('div');
+                const item = symbols[Math.floor(Math.random() * symbols.length)];
+                el.className = item.type;
+                el.textContent = item.char;
+                el.style.left = Math.random() * 100 + 'vw';
+                el.style.animationDuration = (12 + Math.random() * 18) + 's';
+                el.style.animationDelay = (Math.random() * 12) + 's';
+                el.style.fontSize = (16 + Math.random() * 14) + 'px';
+                container.appendChild(el);
+            }
+        }
+        createParticles();
+
+        // ===== MINI GAME =====
+        let collected = 0;
+        const needed = 12;
+        const field = document.getElementById('heart-field');
+        let gameComplete = false;
+
+        function spawnHeart() {
+            if (gameComplete) return;
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart-btn';
+            heart.textContent = ['❤️','💕','💗','💖','💝'][Math.floor(Math.random()*5)];
+            heart.style.left = (10 + Math.random() * 75) + '%';
+            heart.style.top = (10 + Math.random() * 70) + '%';
+            heart.style.animationDelay = (Math.random() * 1.5) + 's';
+
+            heart.addEventListener('click', function collect(e) {
+                e.stopPropagation();
+                if (heart.classList.contains('collected') || gameComplete) return;
+                heart.classList.add('collected');
+                collected++;
+                updateProgress();
+                setTimeout(() => heart.remove(), 500);
+                if (collected < needed) {
+                    setTimeout(spawnHeart, 300 + Math.random() * 400);
+                }
+            });
+
+            field.appendChild(heart);
+
+            // Auto remove if not collected after some time
+            setTimeout(() => {
+                if (!heart.classList.contains('collected') && heart.parentNode) {
+                    heart.style.opacity = '0';
+                    setTimeout(() => heart.remove(), 300);
+                    if (!gameComplete && collected < needed) {
+                        setTimeout(spawnHeart, 200);
+                    }
+                }
+            }, 4500 + Math.random() * 2000);
+        }
+
+        function updateProgress() {
+            const pct = Math.min((collected / needed) * 100, 100);
+            document.getElementById('progress-bar').style.width = pct + '%';
+            document.getElementById('progress-text').textContent = collected + ' / ' + needed + ' hearts';
+
+            if (collected >= needed && !gameComplete) {
+                gameComplete = true;
+                document.getElementById('unlock-message').style.display = 'block';
+                document.getElementById('continue-btn').style.display = 'inline-block';
+                // Clear remaining hearts
+                field.querySelectorAll('.floating-heart-btn').forEach(h => {
+                    h.style.opacity = '0.3';
+                    h.style.pointerEvents = 'none';
+                });
+            }
+        }
+
+        // Start spawning
+        for (let i = 0; i < 5; i++) {
+            setTimeout(spawnHeart, i * 400);
+        }
+        // Continuous gentle spawning
+        setInterval(() => {
+            if (!gameComplete && field.querySelectorAll('.floating-heart-btn:not(.collected)').length < 6) {
+                spawnHeart();
+            }
+        }, 1200);
+
+        document.getElementById('continue-btn').addEventListener('click', () => {
+            showScreen('gifts-screen');
+        });
+
+        // ===== NAVIGATION =====
+        function showScreen(id) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function openGift(num) {
+            showScreen('gift' + num + '-screen');
+            if (num === 1) {
+                // Reset password if needed
+                document.getElementById('password-overlay').classList.remove('hidden');
+                document.getElementById('password-input').value = '';
+                document.getElementById('password-error').textContent = '';
+            }
+        }
+
+        function goBack() {
+            showScreen('gifts-screen');
+        }
+
+        function showFinal() {
+            showScreen('final-screen');
+        }
+
+        function goToGifts() {
+            showScreen('gifts-screen');
+        }
+
+        // ===== PASSWORD =====
+        function checkPassword() {
+            const input = document.getElementById('password-input');
+            const err = document.getElementById('password-error');
+            if (input.value === '1031') {
+                document.getElementById('password-overlay').classList.add('hidden');
+                err.textContent = '';
+            } else {
+                err.textContent = 'Wrong passcode 💔 Try again my love';
+                input.value = '';
+                input.focus();
+            }
+        }
+
+        // Allow Enter key for password
+        document.getElementById('password-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') checkPassword();
+        });
+
+        // Prevent zoom on double tap etc on iOS
+        document.addEventListener('gesturestart', e => e.preventDefault());
+    </script>
+</body>
+</html>
